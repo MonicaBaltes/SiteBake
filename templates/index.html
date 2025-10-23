@@ -18,7 +18,7 @@
   <main>
     <!-- Butoane: Cofetărie, Galerie, Contact -->
     <div class="button-row">
-      <button id="cofetarieBtn">🧁 Cofetărie</button>
+      <button id="cofetarieBtn">Cofetărie</button>
       <button id="galerieBtn">🎨 Galerie de artă - Picturi pe numere</button>
       <button id="contactBtn">📞 Contact</button>
     </div>
@@ -34,16 +34,18 @@
   </main>
 
   <!-- MODAL GALERIE -->
+  <!-- Modal Galerie -->
   <div id="galerieModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Galeria de Artă</h2>
       <div class="gallery">
-        {% for img in images %}
-          <img src="{{ url_for('static', filename=img) }}" alt="Tablou" 
-               data-title="{{ img.split('/')[-1].split('.')[0] }}" 
-               data-price="Preț negociabil">
-        {% endfor %}
+        <img src="{{ url_for('static', filename='images/tablouri/pictura1.jpg') }}" alt="Apus de vară" data-title="Apus de vară" data-price="350 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/pictura2.jpg') }}" alt="Flori în lumină" data-title="Flori în lumină" data-price="420 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/pictura3.jpg') }}" alt="Portret abstract" data-title="Portret abstract" data-price="390 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/pictura4.jpg') }}" alt="Liniște marină" data-title="Liniște marină" data-price="450 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/pictura5.jpg') }}" alt="Zbor de culoare" data-title="Zbor de culoare" data-price="410 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/pictura6.jpg') }}" alt="Răsărit poetic" data-title="Răsărit poetic" data-price="370 RON">
       </div>
     </div>
   </div>
@@ -66,9 +68,24 @@
       <p>Email: <a href="mailto:monica.baltes@yahoo.com">monica.baltes@yahoo.com</a></p>
       <p>Telefon: 0751 409 520</p>
       <p>Adresă: Ocna Sibiului, Sibiu</p>
-      <p><a href="https://www.facebook.com/share/1CjmWKH6vW/" target="_blank">Facebook</a></p>
-      <p><a href="https://www.instagram.com/naniisbake?utm_source=qr&igsh=c2RreXdoMmhhbXU5" target="_blank">Instagram</a></p>
-      <p><a href="https://www.tiktok.com/@monicaelena2308?_t=ZN-90n2nTmIoY2&_r=1" target="_blank">TikTok</a></p>
+      <p>
+        <a href="https://www.facebook.com/share/1CjmWKH6vW/" target="_blank">
+            <img src="{{ url_for('static', filename='images/facebook.jpg') }}" alt="Facebook" class="social-icon">
+            Facebook
+        </a>
+      </p>
+      <p>
+        <a href="https://www.instagram.com/naniisbake?utm_source=qr&igsh=c2RreXdoMmhhbXU5" target="_blank">
+            <img src="{{ url_for('static', filename='images/instagram.jpg') }}" alt="Instagram" class="social-icon">
+            Instagram
+        </a>
+      </p>
+     <p>
+        <a href="https://www.tiktok.com/@monicaelena2308?_t=ZN-90n2nTmIoY2&_r=1" target="_blank">
+            <img src="{{ url_for('static', filename='images/tiktock.png') }}" alt="TikTok" class="social-icon">
+            TikTok
+        </a>
+     </p>
     </div>
   </div>
 

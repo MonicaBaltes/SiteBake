@@ -138,10 +138,29 @@ button:hover {
   background-color: rgba(0,0,0,0.6);
 }
 
-.modal-content, .modal-content-large {
-  background-color: white;
-  margin: 8% auto;
+
+/* Modal imagine mare - aliniază sus și scroll */
+.modal-content-large {
+  width: 50%;
+  max-height: 90vh;      /* limita înălțimii */
+  overflow-y: auto;       /* scroll vertical dacă e prea mare */
+  text-align: center;
+  margin: 40px auto 20px auto; /* aliniază mai sus */
   padding: 30px;
   border-radius: 25px;
-  width: 60%;
-  box-shadow: 0 
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease;
+}
+
+/* Optional: dacă vrei să fie complet lipit de sus */
+.modal-content-large {
+  margin-top: 20px; /* mic spațiu de sus */
+}
+
+/*iconite contacte*/
+.social-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
