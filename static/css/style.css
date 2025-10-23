@@ -1,9 +1,8 @@
-/* FUNDAL GENERAL */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('/static/images/fundalRozz.jpg'); /* fundalul tău */
+  background-image: url('/static/images/fundalRozz.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -15,19 +14,19 @@ body {
 /* HEADER */
 header {
   position: relative;
-  padding: 20px 0;
-  background-color: rgba(255, 255, 255, 0.7); /* ușor transparent, să se vadă fundalul */
+  padding: 30px 0;
+  background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
   position: absolute;
-  left: 30px;
+  left: 40px;
   top: 15px;
-  width: 90px;
+  width: 160px; /* Logo mult mai mare */
   border-radius: 50%;
   border: 2px solid #ff8fb1;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
 }
 
@@ -36,26 +35,22 @@ header {
 }
 
 .site-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #d63384;
+  font-family: 'Great Vibes', cursive; /* Font elegant */
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #c2185b;
   margin: 0;
-  text-shadow: 2px 2px 6px rgba(255,255,255,0.9);
+  text-shadow: 2px 2px 8px rgba(255,255,255,0.9);
 }
 
-/* SECTIUNEA PRINCIPALĂ */
-main {
-  margin-top: 100px;
-}
-
-.button-container {
+/* BUTOANE PRINCIPALE */
+.button-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   gap: 25px;
+  margin-top: 80px;
 }
 
-/* BUTOANE */
 button {
   background-color: #ff8fb1;
   border: none;
@@ -63,7 +58,6 @@ button {
   padding: 15px 40px;
   border-radius: 50px;
   font-size: 1.2rem;
-  letter-spacing: 0.5px;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
@@ -74,7 +68,20 @@ button:hover {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* MODALE */
+/* TEXT CENTRAL */
+.intro-text {
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 20px;
+  width: 70%;
+  margin: 40px auto;
+  padding: 25px 30px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #444;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* MODALS */
 .modal {
   display: none;
   position: fixed;
@@ -86,7 +93,7 @@ button:hover {
   background-color: rgba(0,0,0,0.6);
 }
 
-.modal-content {
+.modal-content, .modal-content-large {
   background-color: white;
   margin: 8% auto;
   padding: 30px;
@@ -94,6 +101,28 @@ button:hover {
   width: 60%;
   box-shadow: 0 8px 15px rgba(0,0,0,0.3);
   animation: popIn 0.3s ease;
+}
+
+.modal-content-large {
+  width: 50%;
+  text-align: center;
+}
+
+.modal-content-large img {
+  max-width: 80%;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+#modalTitle {
+  font-size: 1.8rem;
+  color: #d63384;
+  margin-top: 15px;
+}
+
+#modalPrice {
+  font-size: 1.2rem;
+  color: #444;
 }
 
 @keyframes popIn {
@@ -127,6 +156,7 @@ button:hover {
   border-radius: 15px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .gallery img:hover {

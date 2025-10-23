@@ -13,3 +13,8 @@ git commit -m "Am actualizat fundalul, logo-ul și stilul site-ului"
 
 git push
 
+--------------------------------
+git status
+git add .
+git commit -m "Adăugat folder tablouri și actualizat design site"
+git push

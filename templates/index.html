@@ -9,12 +9,19 @@
     <header>
         <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo Nanii's Bake" class="logo">
         <h1>Nanii's Bake and Art</h1>
-        <button class="contact-btn" id="ContactBtn">Contact</button>
     </header>
     <main>
     <div class="button-container">
       <button id="galerieBtn">🎨 Galerie de artă</button>
       <button id="contactBtn">📞 Contact</button>
+    </div>
+  </main>
+   <div class="intro-text">
+      <p>
+        Bine ai venit la <strong>Galeria Rozz</strong> — un colț dedicat pasiunii pentru culoare, emoție și expresie artistică.  
+        Fiecare tablou spune o poveste și aduce o bucată din sufletul artistului în casa ta.  
+        Explorează colecția noastră unică și descoperă arta care ți se potrivește.
+      </p>
     </div>
   </main>
    <!-- Modal Galerie -->
@@ -23,13 +30,22 @@
       <span class="close">&times;</span>
       <h2>Galeria de Artă</h2>
       <div class="gallery">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouPErsonalizat.jpeg') }}" alt="Pictura 1">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouCaprioare.jpeg') }}" alt="Pictura 2">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouIcoana.jpeg') }}" alt="Pictura 3">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouLavanda.jpeg') }}" alt="Pictura 4">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouVaza.jpeg') }}" alt="Pictura 5">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouCasuta.jpeg') }}" alt="Pictura 6">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouPErsonalizat.jpeg') }}" alt="Apus de vară" data-title="Apus de vară" data-price="350 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouCaprioare.jpeg') }}" alt="Flori în lumină" data-title="Flori în lumină" data-price="420 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouIcoana.jpeg') }}" alt="Portret abstract" data-title="Portret abstract" data-price="390 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouLavanda.jpeg') }}" alt="Liniște marină" data-title="Liniște marină" data-price="450 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouVaza.jpeg') }}" alt="Zbor de culoare" data-title="Zbor de culoare" data-price="410 RON">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouCasuta.jpeg') }}" alt="Răsărit poetic" data-title="Răsărit poetic" data-price="370 RON">
       </div>
+    </div>
+  </div>
+   <!-- Modal Imagine Mare -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content-large">
+      <span class="close">&times;</span>
+      <img id="modalImg" src="" alt="">
+      <h3 id="modalTitle"></h3>
+      <p id="modalPrice"></p>
     </div>
   </div>
   <!-- Modal Contact -->
@@ -47,19 +63,36 @@
   </div>
 
     <script>
+    // Butoane principale
     const galerieBtn = document.getElementById("galerieBtn");
     const contactBtn = document.getElementById("contactBtn");
-    const modals = document.querySelectorAll(".modal");
     const closes = document.querySelectorAll(".close");
 
     galerieBtn.onclick = () => document.getElementById("galerieModal").style.display = "block";
     contactBtn.onclick = () => document.getElementById("contactModal").style.display = "block";
     closes.forEach(btn => btn.onclick = () => btn.parentElement.parentElement.style.display = "none");
+
     window.onclick = event => {
       if (event.target.classList.contains("modal")) {
         event.target.style.display = "none";
       }
     };
+
+    // Galerie: click pe o poză pentru detalii
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const imageModal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPrice = document.getElementById("modalPrice");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modalTitle.textContent = img.dataset.title;
+        modalPrice.textContent = "Preț: " + img.dataset.price;
+        imageModal.style.display = "block";
+      });
+    });
   </script>
    
 </body> 
