@@ -2,26 +2,65 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Nanii's Bake</title>
+    <title>Nanii's Bake and Art</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
         <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo Nanii's Bake" class="logo">
-        <h1>Nanii's Bake</h1>
+        <h1>Nanii's Bake and Art</h1>
+        <button class="contact-btn" id="ContactBtn">Contact</button>
     </header>
-    <section class="hero">
-        <h2>Bun venit la cofetăria noastră!</h2>
-        <p>Deserturi delicioase pentru orice ocazie 🎂</p>
-    </section>
-    <section class="contact-card">
-        <h3>Contact</h3>
-        <p>Email: monica.baltes@yahoo.com</p>
-        <p>Facebook: Monica Elena</p>
-        <p>Instagram: moni.baltes</p>
-        <p>Tick Tok: @monicaelena2308</p>
-        <p>Telefon: +40 751409520</p>
-        <p>Adresa: Ocna Sibiului, Sibiu</p>
-    </section>
-</body>
+    <main>
+    <div class="button-container">
+      <button id="galerieBtn">🎨 Galerie de artă</button>
+      <button id="contactBtn">📞 Contact</button>
+    </div>
+  </main>
+   <!-- Modal Galerie -->
+  <div id="galerieModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Galeria de Artă</h2>
+      <div class="gallery">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouPErsonalizat.jpeg') }}" alt="Pictura 1">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouCaprioare.jpeg') }}" alt="Pictura 2">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouIcoana.jpeg') }}" alt="Pictura 3">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouLavanda.jpeg') }}" alt="Pictura 4">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouVaza.jpeg') }}" alt="Pictura 5">
+        <img src="{{ url_for('static', filename='images/tablouri/TablouCasuta.jpeg') }}" alt="Pictura 6">
+      </div>
+    </div>
+  </div>
+  <!-- Modal Contact -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Contactează-ne</h2>
+      <p>Email: <a href="mailto:monica.baltes@yahoo.com">monica.baltes@yahoo.com</a></p>
+      <p>Telefon: +40 751409520</p>
+      <p>Adresă: Ocna Sibiului, Sibiu</p>
+      <p>Facebook: Monica Elena</p>
+      <p>Instagram: moni.baltes</p>
+      <p>Tick Tok: @monicaelena2308</p>
+    </div>
+  </div>
+
+    <script>
+    const galerieBtn = document.getElementById("galerieBtn");
+    const contactBtn = document.getElementById("contactBtn");
+    const modals = document.querySelectorAll(".modal");
+    const closes = document.querySelectorAll(".close");
+
+    galerieBtn.onclick = () => document.getElementById("galerieModal").style.display = "block";
+    contactBtn.onclick = () => document.getElementById("contactModal").style.display = "block";
+    closes.forEach(btn => btn.onclick = () => btn.parentElement.parentElement.style.display = "none");
+    window.onclick = event => {
+      if (event.target.classList.contains("modal")) {
+        event.target.style.display = "none";
+      }
+    };
+  </script>
+   
+</body> 
 </html>

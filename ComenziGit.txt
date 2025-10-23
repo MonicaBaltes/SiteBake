@@ -1,0 +1,15 @@
+Comenzi pentru a pune codul in git
+
+git status
+
+git add .
+
+git add static/css/style.css
+
+git add templates/index.html
+
+
+git commit -m "Am actualizat fundalul, logo-ul și stilul site-ului"
+
+git push
+
