@@ -11,7 +11,7 @@
   <!-- HEADER cu logo și titlu -->
   <header>
     <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo" class="logo">
-    <h1 class="site-title">Galeria Rozz</h1>
+    <h1 class="site-title">Nanii's Bake and Art</h1>
   </header>
 
   <!-- SECȚIUNE PRINCIPALĂ -->
@@ -20,6 +20,7 @@
     <div class="button-row">
       <button id="galerieBtn">🎨 Galerie de artă - Picturi pe numere</button>
       <button id="contactBtn">📞 Contact</button>
+      <button id="cofetarieBtn"> Cofetarie</button>
     </div>
 
     <!-- Text central -->
@@ -63,9 +64,12 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Contactează-ne</h2>
-      <p>Email: <a href="mailto:contact@galeriarozz.ro">contact@galeriarozz.ro</a></p>
-      <p>Telefon: 0723 123 456</p>
-      <p>Adresă: Str. Artiștilor nr. 7, București</p>
+      <p>Email: <a href="mailto:monica.baltes@yahoo.com">monica.baltes@yahoo.com</a></p>
+      <p>Telefon: 0751 409 520</p>
+      <p>Adresă: Ocna Sibiului, Sibiu</p>
+      <p>Facebook: <a href="https://www.facebook.com/share/1CjmWKH6vW/" target="_blank">Facebook</a></p>
+      <p>Facebook: <a href="https://www.instagram.com/naniisbake?utm_source=qr&igsh=c2RreXdoMmhhbXU5" target="_blank">Instagram</a></p>
+      <p>Facebook: <a href="https://www.tiktok.com/@monicaelena2308?_t=ZN-90n2nTmIoY2&_r=1" target="_blank">Tik Tok</a></p>
     </div>
   </div>
 
@@ -74,10 +78,12 @@
     // Butoane principale
     const galerieBtn = document.getElementById("galerieBtn");
     const contactBtn = document.getElementById("contactBtn");
+     const cofetarieBtn = document.getElementById("cofetarieBtn");
     const closes = document.querySelectorAll(".close");
 
     galerieBtn.onclick = () => document.getElementById("galerieModal").style.display = "block";
     contactBtn.onclick = () => document.getElementById("contactModal").style.display = "block";
+    contactBtn.onclick = () => document.getElementById("cofetarieBtn").style.display = "block";
 
     closes.forEach(btn => btn.onclick = () => btn.parentElement.parentElement.style.display = "none");
 
@@ -87,25 +93,41 @@
       }
     };
 
+    // Galerie: click pe o poză pentru detalii
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const imageModal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPrice = document.getElementById("modalPrice");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modalTitle.textContent = img.dataset.title;
+        modalPrice.textContent = img.dataset.price;
+        imageModal.style.display = "block";
+      });
+    });
+
     // Scroll la început când se deschide modalul imagine mare
-galleryImages.forEach(img => {
-  img.addEventListener("click", () => {
-    modalImg.src = img.src;
-    modalTitle.textContent = img.dataset.title;
-    modalPrice.textContent = img.dataset.price;
+    galleryImages.forEach(img => {
+     img.addEventListener("click", () => {
+        modalImg.src = img.src;
+        modalTitle.textContent = img.dataset.title;
+        modalPrice.textContent = img.dataset.price;
 
-    // Scroll la începutul paginii
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scroll la începutul paginii
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    imageModal.style.display = "block";
+        imageModal.style.display = "block";
   });
 });
 
 // Când închizi modalul mare, revine scroll-ul normal (poți lăsa browserul să-și păstreze poziția)
-closes.forEach(btn => {
-  btn.addEventListener("click", () => {
+    closes.forEach(btn => {
+     btn.addEventListener("click", () => {
     // Închide modalul
-    btn.parentElement.parentElement.style.display = "none";
+         btn.parentElement.parentElement.style.display = "none";
 
     // Dacă vrei să revii exact la poziția de unde ai deschis poza, poți salva scroll-ul înainte
     // (opțional, dacă vrei să faci asta mai complicat)
