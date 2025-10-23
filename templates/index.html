@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <title>Nanii's Bake and Art</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <title>Galeria Rozz</title>
+  <!-- Font elegant pentru titlu + font principal pentru text -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <header>
-        <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo Nanii's Bake" class="logo">
-        <h1>Nanii's Bake and Art</h1>
-    </header>
-    <main>
-    <div class="button-container">
+  <!-- HEADER cu logo și titlu -->
+  <header>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+    <h1 class="site-title">Galeria Rozz</h1>
+  </header>
+
+  <!-- SECȚIUNE PRINCIPALĂ -->
+  <main>
+    <!-- Butoane: Galerie și Contact, pe o linie -->
+    <div class="button-row">
       <button id="galerieBtn">🎨 Galerie de artă</button>
       <button id="contactBtn">📞 Contact</button>
     </div>
-  </main>
-   <div class="intro-text">
+
+    <!-- Text central -->
+    <div class="intro-text">
       <p>
         Bine ai venit la <strong>Galeria Rozz</strong> — un colț dedicat pasiunii pentru culoare, emoție și expresie artistică.  
         Fiecare tablou spune o poveste și aduce o bucată din sufletul artistului în casa ta.  
@@ -24,22 +31,24 @@
       </p>
     </div>
   </main>
-   <!-- Modal Galerie -->
+
+  <!-- MODAL GALERIE -->
   <div id="galerieModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Galeria de Artă</h2>
       <div class="gallery">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouPErsonalizat.jpeg') }}" alt="Apus de vară" data-title="Apus de vară" data-price="350 RON">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouCaprioare.jpeg') }}" alt="Flori în lumină" data-title="Flori în lumină" data-price="420 RON">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouIcoana.jpeg') }}" alt="Portret abstract" data-title="Portret abstract" data-price="390 RON">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouLavanda.jpeg') }}" alt="Liniște marină" data-title="Liniște marină" data-price="450 RON">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouVaza.jpeg') }}" alt="Zbor de culoare" data-title="Zbor de culoare" data-price="410 RON">
-        <img src="{{ url_for('static', filename='images/tablouri/TablouCasuta.jpeg') }}" alt="Răsărit poetic" data-title="Răsărit poetic" data-price="370 RON">
+        {% for img in images %}
+          <!-- Folosim data-title și data-price pentru detalii în modalul mare -->
+          <img src="{{ url_for('static', filename=img) }}" alt="Tablou" 
+               data-title="{{ img.split('/')[-1].split('.')[0] }}" 
+               data-price="Preț negociabil">
+        {% endfor %}
       </div>
     </div>
   </div>
-   <!-- Modal Imagine Mare -->
+
+  <!-- MODAL IMAGINE MARE -->
   <div id="imageModal" class="modal">
     <div class="modal-content-large">
       <span class="close">&times;</span>
@@ -48,21 +57,20 @@
       <p id="modalPrice"></p>
     </div>
   </div>
-  <!-- Modal Contact -->
+
+  <!-- MODAL CONTACT -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Contactează-ne</h2>
-      <p>Email: <a href="mailto:monica.baltes@yahoo.com">monica.baltes@yahoo.com</a></p>
-      <p>Telefon: +40 751409520</p>
-      <p>Adresă: Ocna Sibiului, Sibiu</p>
-      <p>Facebook: Monica Elena</p>
-      <p>Instagram: moni.baltes</p>
-      <p>Tick Tok: @monicaelena2308</p>
+      <p>Email: <a href="mailto:contact@galeriarozz.ro">contact@galeriarozz.ro</a></p>
+      <p>Telefon: 0723 123 456</p>
+      <p>Adresă: Str. Artiștilor nr. 7, București</p>
     </div>
   </div>
 
-    <script>
+  <!-- SCRIPT pentru deschidere modal și galerie -->
+  <script>
     // Butoane principale
     const galerieBtn = document.getElementById("galerieBtn");
     const contactBtn = document.getElementById("contactBtn");
@@ -70,10 +78,11 @@
 
     galerieBtn.onclick = () => document.getElementById("galerieModal").style.display = "block";
     contactBtn.onclick = () => document.getElementById("contactModal").style.display = "block";
+
     closes.forEach(btn => btn.onclick = () => btn.parentElement.parentElement.style.display = "none");
 
     window.onclick = event => {
-      if (event.target.classList.contains("modal")) {
+      if(event.target.classList.contains("modal")){
         event.target.style.display = "none";
       }
     };
@@ -89,11 +98,10 @@
       img.addEventListener("click", () => {
         modalImg.src = img.src;
         modalTitle.textContent = img.dataset.title;
-        modalPrice.textContent = "Preț: " + img.dataset.price;
+        modalPrice.textContent = img.dataset.price;
         imageModal.style.display = "block";
       });
     });
   </script>
-   
-</body> 
+</body>
 </html>
