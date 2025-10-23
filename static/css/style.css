@@ -1,0 +1,36 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/fundalRozz.jpg'); /* poza fundal */
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.logo {
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-card {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+}
