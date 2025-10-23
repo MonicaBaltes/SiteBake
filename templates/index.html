@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>Nanii's bake and art</title>
+  <title>Nanii's Bake and Art</title>
   <!-- Font elegant pentru titlu + font principal pentru text -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -16,11 +16,11 @@
 
   <!-- SECȚIUNE PRINCIPALĂ -->
   <main>
-    <!-- Butoane: Galerie și Contact, pe o linie -->
+    <!-- Butoane: Cofetărie, Galerie, Contact -->
     <div class="button-row">
+      <button id="cofetarieBtn">🧁 Cofetărie</button>
       <button id="galerieBtn">🎨 Galerie de artă - Picturi pe numere</button>
       <button id="contactBtn">📞 Contact</button>
-      <button id="cofetarieBtn"> Cofetarie</button>
     </div>
 
     <!-- Text central -->
@@ -40,7 +40,6 @@
       <h2>Galeria de Artă</h2>
       <div class="gallery">
         {% for img in images %}
-          <!-- Folosim data-title și data-price pentru detalii în modalul mare -->
           <img src="{{ url_for('static', filename=img) }}" alt="Tablou" 
                data-title="{{ img.split('/')[-1].split('.')[0] }}" 
                data-price="Preț negociabil">
@@ -67,25 +66,40 @@
       <p>Email: <a href="mailto:monica.baltes@yahoo.com">monica.baltes@yahoo.com</a></p>
       <p>Telefon: 0751 409 520</p>
       <p>Adresă: Ocna Sibiului, Sibiu</p>
-      <p>Facebook: <a href="https://www.facebook.com/share/1CjmWKH6vW/" target="_blank">Facebook</a></p>
-      <p>Facebook: <a href="https://www.instagram.com/naniisbake?utm_source=qr&igsh=c2RreXdoMmhhbXU5" target="_blank">Instagram</a></p>
-      <p>Facebook: <a href="https://www.tiktok.com/@monicaelena2308?_t=ZN-90n2nTmIoY2&_r=1" target="_blank">Tik Tok</a></p>
+      <p><a href="https://www.facebook.com/share/1CjmWKH6vW/" target="_blank">Facebook</a></p>
+      <p><a href="https://www.instagram.com/naniisbake?utm_source=qr&igsh=c2RreXdoMmhhbXU5" target="_blank">Instagram</a></p>
+      <p><a href="https://www.tiktok.com/@monicaelena2308?_t=ZN-90n2nTmIoY2&_r=1" target="_blank">TikTok</a></p>
     </div>
   </div>
 
   <!-- SCRIPT pentru deschidere modal și galerie -->
   <script>
-    // Butoane principale
     const galerieBtn = document.getElementById("galerieBtn");
     const contactBtn = document.getElementById("contactBtn");
-     const cofetarieBtn = document.getElementById("cofetarieBtn");
+    const cofetarieBtn = document.getElementById("cofetarieBtn");
     const closes = document.querySelectorAll(".close");
 
-    galerieBtn.onclick = () => document.getElementById("galerieModal").style.display = "block";
-    contactBtn.onclick = () => document.getElementById("contactModal").style.display = "block";
-    contactBtn.onclick = () => document.getElementById("cofetarieBtn").style.display = "block";
+    // Cofetărie - poți pune redirect sau modal
+    cofetarieBtn.onclick = () => {
+      alert("Bine ai venit la secțiunea Cofetărie! 🧁");
+    }
 
-    closes.forEach(btn => btn.onclick = () => btn.parentElement.parentElement.style.display = "none");
+    // Galerie
+    galerieBtn.onclick = () => {
+      document.getElementById("galerieModal").style.display = "block";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Contact
+    contactBtn.onclick = () => {
+      document.getElementById("contactModal").style.display = "block";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Închidere modale
+    closes.forEach(btn => {
+      btn.onclick = () => btn.parentElement.parentElement.style.display = "none";
+    });
 
     window.onclick = event => {
       if(event.target.classList.contains("modal")){
@@ -93,7 +107,7 @@
       }
     };
 
-    // Galerie: click pe o poză pentru detalii
+    // Galerie: click pe imagine → modal imagine mare
     const galleryImages = document.querySelectorAll(".gallery img");
     const imageModal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
@@ -106,35 +120,9 @@
         modalTitle.textContent = img.dataset.title;
         modalPrice.textContent = img.dataset.price;
         imageModal.style.display = "block";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
-
-    // Scroll la început când se deschide modalul imagine mare
-    galleryImages.forEach(img => {
-     img.addEventListener("click", () => {
-        modalImg.src = img.src;
-        modalTitle.textContent = img.dataset.title;
-        modalPrice.textContent = img.dataset.price;
-
-        // Scroll la începutul paginii
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        imageModal.style.display = "block";
-  });
-});
-
-// Când închizi modalul mare, revine scroll-ul normal (poți lăsa browserul să-și păstreze poziția)
-    closes.forEach(btn => {
-     btn.addEventListener("click", () => {
-    // Închide modalul
-         btn.parentElement.parentElement.style.display = "none";
-
-    // Dacă vrei să revii exact la poziția de unde ai deschis poza, poți salva scroll-ul înainte
-    // (opțional, dacă vrei să faci asta mai complicat)
-  });
-});
-
   </script>
-  
 </body>
 </html>

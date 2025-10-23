@@ -49,12 +49,13 @@ header {
 .button-row {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
   margin-top: 80px;
+  flex-wrap: wrap; /* responsive pe mobil */
 }
 
+/* Stil general butoane */
 button {
-  background-color: #ff8fb1;
   border: none;
   color: white;
   padding: 15px 40px;
@@ -62,12 +63,54 @@ button {
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
+/* Hover uniform pentru toate */
 button:hover {
-  background-color: #d63384;
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Cofetărie */
+#cofetarieBtn {
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+}
+
+#cofetarieBtn:hover {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+}
+
+#cofetarieBtn::before {
+  content: "🧁";
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+#cofetarieBtn:hover::before {
+  transform: rotate(-10deg) scale(1.2);
+}
+
+/* Galerie */
+#galerieBtn {
+  background: linear-gradient(135deg, #ffa07a, #ff6347);
+}
+
+#galerieBtn:hover {
+  background: linear-gradient(135deg, #ff6347, #ff4500);
+}
+
+/* Contact */
+#contactBtn {
+  background: linear-gradient(135deg, #87cefa, #1e90ff);
+}
+
+#contactBtn:hover {
+  background: linear-gradient(135deg, #1e90ff, #104e8b);
 }
 
 /* TEXT CENTRAL */
@@ -101,70 +144,4 @@ button:hover {
   padding: 30px;
   border-radius: 25px;
   width: 60%;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-  animation: popIn 0.3s ease;
-}
-
-/* Modal imagine mare cu scroll dacă e înaltă */
-.modal-content-large {
-  width: 50%;
-  max-height: 90vh; /* scroll dacă e prea înalt */
-  overflow-y: auto;
-  text-align: center;
-}
-
-.modal-content-large img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-
-#modalTitle {
-  font-size: 1.8rem;
-  color: #d63384;
-  margin-top: 15px;
-}
-
-#modalPrice {
-  font-size: 1.2rem;
-  color: #444;
-}
-
-@keyframes popIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.close {
-  float: right;
-  font-size: 30px;
-  font-weight: bold;
-  color: #d63384;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #a30057;
-}
-
-/* GALERIE */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.gallery img {
-  width: 220px;
-  border-radius: 15px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
+  box-shadow: 0 
