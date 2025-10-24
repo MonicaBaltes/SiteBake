@@ -25,9 +25,9 @@ header {
     position: absolute;
     left: 40px;
     top: 15px;
-    max-width: 450px;
-    width: 20vw;
-    height: auto;
+    max-width: 450px; /* nu depăși 450px pe desktop */
+    width: 20vw;   /* se adaptează la lățimea ecranului */
+    height: auto;   /* păstrează proporțiile */
     border-radius: 50%;
     border: 2px solid #ff8fb1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -36,6 +36,15 @@ header {
 
 .logo:hover {
     transform: rotate(-5deg) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        left: 15px;       /* se apropie puțin de marginea ecranului */
+        top: 10px;        /* mai sus */
+        max-width: 120px; /* dimensiune mai mică pe mobil */
+        width: 30vw;      /* se adaptează la ecran */
+    }
 }
 
 /* Titlu elegant */
