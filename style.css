@@ -109,9 +109,14 @@ button:hover {
 #galerieBtn {
     background: linear-gradient(135deg, #ffa07a, #ff6347);
 }
+#galerieBtn::before {
+    content: "🎨";
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
 
-#galerieBtn:hover {
-    background: linear-gradient(135deg, #ff6347, #ff4500);
+#galerieBtn:hover::before {
+    transform: rotate(-10deg) scale(1.2);
 }
 
 /* Contact */
@@ -119,8 +124,14 @@ button:hover {
     background: linear-gradient(135deg, #87cefa, #1e90ff);
 }
 
-#contactBtn:hover {
-    background: linear-gradient(135deg, #1e90ff, #104e8b);
+#contactBtn::before {
+    content: "📞";
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+#contactBtn:hover::before {
+    transform: rotate(-10deg) scale(1.2);
 }
 
 /* TEXT CENTRAL */
@@ -199,6 +210,7 @@ button:hover {
     height: 24px;
     vertical-align: middle;
     margin-right: 8px;
+    transition: transform 0.3s ease;
 }
 
 /* Animație apariție */
@@ -243,6 +255,21 @@ button:hover {
     font-size: 1.2rem;
     color: #444;
     margin: 12px 0;
+    
+}
+
+.contact-content p:hover {
+    transform: translateY(-3px) scale(1.05); /* se ridică și se mărește ușor */
+    color: #ff69b4; /* textul devine roz la hover */
+}
+
+/* iconiță din p */
+.contact-content p .social-icon {
+    transition: transform 0.3s ease;
+}
+
+.contact-content p:hover .social-icon {
+    transform: rotate(-10deg) scale(1.2); /* iconița se rotește și se mărește */
 }
 
 /* linkuri social media */
@@ -250,11 +277,14 @@ button:hover {
     color: #c2185b;
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease; /* animație pentru transform și culoare */
+    display: inline-flex; /* pentru a alinia text + iconiță */
+    align-items: center;
 }
 
 .contact-content a:hover {
     color: #ff69b4;
+    transform: translateY(-3px) scale(1.1); /* se ridică ușor și se mărește */
 }
 
 /* iconițe sociale */
@@ -263,8 +293,12 @@ button:hover {
     height: 32px;
     margin-right: 10px;
     vertical-align: middle;
+    transition: transform 0.3s ease; /* animație pentru iconiță */
 }
 
+.contact-content a:hover .social-icon {
+    transform: rotate(-10deg) scale(1.2); /* iconița se rotește ușor și se mărește */
+}
 
 /* === GALERIE DE ARTĂ === */
 .gallery {
