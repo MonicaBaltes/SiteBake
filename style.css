@@ -119,6 +119,25 @@ button:hover {
     transform: rotate(-10deg) scale(1.2);
 }
 
+/*prajituri*/
+#prajituriBtn {
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+}
+
+#prajituriBtn:hover {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+}
+
+#prajituriBtn::before {
+    content: "🍰";
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+#prajituriBtn:hover::before {
+    transform: rotate(-10deg) scale(1.2);
+} 
+
 /* Contact */
 #contactBtn {
     background: linear-gradient(135deg, #87cefa, #1e90ff);
@@ -160,7 +179,6 @@ button:hover {
     background-size: cover;
     background-position: center;
     overflow-y: auto;
-    /* scroll dacă e conținut mare */
 }
 
 /* Conținut modale (contact, galerie etc.) */
