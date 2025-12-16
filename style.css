@@ -361,3 +361,28 @@ button:hover {
     font-size: 1.1rem;
     color: #444;
 }
+
+/* === MODALE AFIȘATE DIRECT PE PAGINĂ === */
+.inline-modal {
+    position: static;
+    display: block;
+    background: none;
+    margin-top: 60px;
+}
+
+/* ===== PAGINĂ ÎMPĂRȚITĂ ÎN 2 ===== */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 95%;
+    margin: 60px auto;
+    align-items: start;
+}
+
+/* pe tabletă */
+@media (max-width: 1024px) {
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+}

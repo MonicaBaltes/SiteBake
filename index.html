@@ -19,8 +19,8 @@
   <main>
     <!-- Butoane: Cofetărie, Galerie, Contact -->
     <div class="button-row">
-      <button id="cofetarieBtn">Brioșe</button>
-      <button id="prajituriBtn">Prăjituri</button>
+      <!--  <button id="cofetarieBtn">Brioșe</button>
+    <button id="prajituriBtn">Prăjituri</button> -->
       <button id="galerieBtn">Galerie de artă - Picturi pe numere</button>
       <button id="contactBtn">Contact</button>
     </div>
@@ -33,7 +33,7 @@
         <p> Dacă cineva își dorește prăjituri proaspete și delicioase pentru sărbători, vă rog să mă contactați <strong>până în data de 12 decembrie</strong>.
             Cu drag pregătesc bunătăți pentru masa festivă!
         </p>
-        <p>
+       <!-- <p>
             Aici găsești o lume dulce și colorată, plină de prăjituri de poveste și brioșe decorate cu flori din buttercream viu colorate, perfecte pentru orice ocazie specială. 
             Fiecare deliciu este creat cu dragoste și atenție la detalii, ca să-ți aducă un zâmbet instant.
         </p>   
@@ -46,30 +46,15 @@
         </p>
         <p>
              Răsfoiește, visează și lasă-te purtat de savoare și culoare – magia începe aici! ✨
-        </p>
-      
+        </p> -->
     </div>
-  </main>
 
-  <!-- MODAL GALERIE -->
-  <div id="galerieModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Galeria de Artă</h2>
-      <div class="gallery">
-        <img src="images/tablouri/TablouCaprioare.jpeg" alt="Peisaj de poveste cu caprioare" data-title="Peisaj de poveste cu caprioare 40x50" data-price="350 RON">
-        <img src="images/tablouri/TablouCasuta.jpeg" alt="Casuta magica langa lac" data-title="Casuta magica langa lac 40x50" data-price="350 RON">
-        <img src="images/tablouri/TablouIcoana.jpeg" alt="Icoana-Maica Domnului Cu Iisus" data-title="Icoana-Maica Domnului Cu Iisus 40x50" data-price="300 RON">
-        <img src="images/tablouri/TablouLavanda.jpeg" alt="Picnic in lanul cu lavanda" data-title="Picnic in lanul cu lavanda 40x50" data-price="350RON">
-        <img src="images/tablouri/TablouVaza.jpeg" alt="Vaza cu trandafiri" data-title="Vaza cu trandafiri 30x40" data-price="250 RON">
-        </div>
-    </div>
-  </div>
-
+  <div class="two-columns">  
   <!-- MODAL COFETARIE -- briose -->
-    <div id="cofetarieModal" class="modal">
+  <!--  <div id="cofetarieModal" class="modal"> -->
+   <div class="inline-modal">  
       <div class="modal-content">
-        <span class="close">&times;</span>
+       <!-- <span class="close">&times;</span>-->
         <h2>Brioșe</h2>
         <div class="gallery">
           <img src="images/cofetarie/briose/CutieBriosa1.jpg" alt="Cutie cu o briosa" data-title="Cutie cu o briosa. (Minim 3 buc)" data-price="25 RON">
@@ -124,9 +109,10 @@
     </div>
 
  <!-- MODAL prajituri-->
-    <div id="prajituriModal" class="modal">
+    <!-- <div id="prajituriModal" class="modal"> -->
+    <div class="inline-modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <!-- <span class="close">&times;</span> -->
         <h2>Prajituri</h2>
         <div class="gallery">
           <img src="images/cofetarie/praji/PlatouPraji1.jpg" alt="Platou prajituri" data-title="Platou prajituri.">
@@ -153,6 +139,24 @@
       </div>
       </div>
     </div>
+</div>
+  </main>
+
+  <!-- MODAL GALERIE -->
+  <div id="galerieModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Galeria de Artă</h2>
+      <div class="gallery">
+        <img src="images/tablouri/TablouCaprioare.jpeg" alt="Peisaj de poveste cu caprioare" data-title="Peisaj de poveste cu caprioare 40x50" data-price="350 RON">
+        <img src="images/tablouri/TablouCasuta.jpeg" alt="Casuta magica langa lac" data-title="Casuta magica langa lac 40x50" data-price="350 RON">
+        <img src="images/tablouri/TablouIcoana.jpeg" alt="Icoana-Maica Domnului Cu Iisus" data-title="Icoana-Maica Domnului Cu Iisus 40x50" data-price="300 RON">
+        <img src="images/tablouri/TablouLavanda.jpeg" alt="Picnic in lanul cu lavanda" data-title="Picnic in lanul cu lavanda 40x50" data-price="350RON">
+        <img src="images/tablouri/TablouVaza.jpeg" alt="Vaza cu trandafiri" data-title="Vaza cu trandafiri 30x40" data-price="250 RON">
+        </div>
+    </div>
+  </div>
+
 
   <!-- MODAL IMAGINE MARE -->
   <div id="imageModal" class="modal">
